@@ -10,7 +10,7 @@ https://jsoup.org/download
 #### description
 Checks if a URL has already been visited
 #### parameters
-None
+None, maybe args to specify max visited
 #### returns
 Unvisited URL
 ### crawl function
