@@ -25,23 +25,6 @@ public class Crawler
     this.pagesVisited.add(nextUrl);
     return nextUrl;
   }
-	
-	public void search(String url)//Performs the main search function
-  {
-    while(this.pagesVisited.size() < MAX_PAGES_TO_SEARCH)
-    {
-        String currentUrl;
-        if(this.pagesToVisit.isEmpty())
-        {
-          currentUrl = url;
-          this.pagesVisited.add(url);
-        }
-        else{currentUrl = this.nextUrl();}
-        crawl(currentUrl);
-        this.pagesToVisit.addAll(getLinks());
-    }
-    System.out.println(String.format("Visited %s web page(s)", this.pagesVisited.size()));
-  }
 
 	public boolean crawl(String url)// Makes an HTTP request for a given url
 	{
