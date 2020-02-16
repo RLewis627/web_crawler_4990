@@ -11,6 +11,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Crawler {
+
     private Set<String> pagesVisited = new HashSet<>();
     private List<String> pagesToVisit = new LinkedList<>();
     private List<String> links = new LinkedList<>();
