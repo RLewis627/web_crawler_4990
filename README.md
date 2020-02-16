@@ -2,7 +2,7 @@
 ## Description
 Web crawler used to gather data on word frequencies and rank for 3 different languages
 ## Resources
-jsoup 1.12.2
+Download jsoup 1.12.2.jar and add to library or .jar file to run imports
 https://jsoup.org/download
 ## Documentation
 ### nextUrl function
