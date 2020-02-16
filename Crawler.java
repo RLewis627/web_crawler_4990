@@ -41,7 +41,7 @@ public class Crawler
     }
   }
 	
-	public crawl(String url)// Makes an HTTP request for a given url
+	public boolean crawl(String url)// Makes an HTTP request for a given url
 	{
 	  try
     {
