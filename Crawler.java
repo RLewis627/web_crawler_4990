@@ -14,6 +14,8 @@ public class Crawler
   private Set<String> pagesVisited = new HashSet<String>();
   private List<String> pagesToVisit = new LinkedList<String>();
   private List<String> links = new LinkedList<String>();
+	private static final int MAX_PAGES_TO_SEARCH = 10;
+	
   private Document htmlDocument;
 	private static final String USER_AGENT = "Chrome-Chrome OS";
 
