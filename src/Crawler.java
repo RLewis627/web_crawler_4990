@@ -1,6 +1,10 @@
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.net.*;
@@ -53,9 +57,9 @@ public class Crawler {
         try {
             Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
             Document htmlDocument = connection.get();
+            String htmlString = connection.get().html();
             this.htmlDocument = htmlDocument;
 
-            // System.out.println(htmlDocument);
             if (connection.response().statusCode() == 200) {
                 System.out.println("\nVisiting " + url);
             }
@@ -68,13 +72,17 @@ public class Crawler {
 
             System.out.println("Found " + linksOnPage.size() + " links");
 
-            String text = this.htmlDocument.body().text(); // Possibly write contents of Text into a file in repository
-                                                           // folder
-
-            // Check the language of the webpage
+            // Check the language of the webpage - if it's in our language, download it.
             try {
-                // Limited to the first 500 words of the website so the API doesn't get overloaded
-                System.out.println("The page is in: " + checkLanguage(text.substring(0, 500)));
+                // Limited to the first 500 words of the website so the API doesn't get
+                // overloaded
+                String pageLanguage = checkLanguage(htmlString.substring(0, 500));
+                if (pageLanguage.equals("English")) {
+                    System.out.println("The page is in: " + pageLanguage);
+                    downloadFile(htmlString);
+                } else {
+                    System.out.println("The language is not in the language of our choice");
+                }
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -94,7 +102,7 @@ public class Crawler {
     public String checkLanguage(String url) throws IOException, InterruptedException {
         String language = "";
         String qry = url;
-        String urlString= "http://api.languagelayer.com/detect?access_key=a41003d098828a4f509e414890e40464&query="
+        String urlString = "http://api.languagelayer.com/detect?access_key=a41003d098828a4f509e414890e40464&query="
                 + encode(qry);
 
         // Preparing the URL request
@@ -106,7 +114,6 @@ public class Crawler {
         con.addRequestProperty("User-Agent", USER_AGENT);
 
         int status = con.getResponseCode();
-
 
         // Check if the response code was successful
         if (status == 200) {
@@ -135,9 +142,12 @@ public class Crawler {
         return language;
     }
 
-    // Write to a file - Not done
-    public void writeToFile(String file) {
-       
+    // Write to a file - Done
+    public void downloadFile(String file) throws FileNotFoundException {
+        System.out.println("Downloading file");
+        try (PrintWriter out = new PrintWriter("filename.html")) {
+            out.println(file);
+        }
     }
 
     public static String encode(String url) {  
