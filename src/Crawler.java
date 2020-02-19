@@ -20,6 +20,7 @@ import org.jsoup.select.Elements;
 
 public class Crawler {
 
+    private CSV CSV_FILE = new CSV();
     private Set<String> pagesVisited = new HashSet<>();
     private List<String> pagesToVisit = new LinkedList<>();
     private List<String> links = new LinkedList<>();
@@ -39,7 +40,7 @@ public class Crawler {
     public void search(String url) // Performs the main search function
     {
         // MAX_PAGES_TO_SEARCH testing manual input
-        while (this.pagesVisited.size() < 1) {
+        while (this.pagesVisited.size() < 10) {
             String currentUrl;
             if (this.pagesToVisit.isEmpty()) {
                 currentUrl = url;
@@ -50,6 +51,7 @@ public class Crawler {
             crawl(currentUrl);
             this.pagesToVisit.addAll(getLinks());
         }
+        CSV_FILE.close();
     }
 
     public boolean crawl(String url) // Makes an HTTP request for a given url
@@ -69,9 +71,9 @@ public class Crawler {
             }
 
             Elements linksOnPage = htmlDocument.select("a[href]");
-
+            CSV_FILE.add(url,linksOnPage.size());
             System.out.println("Found " + linksOnPage.size() + " links");
-
+            
             // Check the language of the webpage - if it's in our language, download it.
             try {
                 // Limited to the first 500 words of the website so the API doesn't get
@@ -84,10 +86,9 @@ public class Crawler {
                     System.out.println("The language is not in the language of our choice");
                 }
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
+            
             for (Element link : linksOnPage) {
                 this.links.add(link.absUrl("href"));
             }
@@ -134,8 +135,8 @@ public class Crawler {
                 JSONArray results = jsonResponse.getJSONArray("results");
                 language = results.getJSONObject(0).getString("language_name");
             } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                //May throw org.json.JSONException: JSONObject["results"] not found.
+                System.err.println("Failed to retrieve results for language.");
             }
         }
 
@@ -145,7 +146,7 @@ public class Crawler {
     // Write to a file - Done
     public void downloadFile(String file) throws FileNotFoundException {
         System.out.println("Downloading file");
-        try (PrintWriter out = new PrintWriter("filename.html")) {
+        try (PrintWriter out = new PrintWriter("repository/filename.html")) {
             out.println(file);
         }
     }

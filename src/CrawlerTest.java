@@ -4,5 +4,4 @@ public class CrawlerTest {
         Crawler crawler = new Crawler();
         crawler.search("https://www.reddit.com/");
     }
-
 }
