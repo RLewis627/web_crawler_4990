@@ -2,7 +2,7 @@
 ## Description
 Web crawler used to gather data on word frequencies and rank for 3 different languages
 ## Resources
-Download jsoup 1.12.2.jar and add to library or .jar file to run imports
+Resources should be under the lib folder containing our third party libraries, jar files, and APIs.
 https://jsoup.org/download
 ## Documentation
 ### nextUrl function
@@ -10,7 +10,7 @@ https://jsoup.org/download
 #### description
 Checks if a URL has already been visited
 #### parameters
-None, maybe args to specify max visited
+None, maybe args to specify max visited (command line input or read)
 #### returns
 Unvisited URL
 ### crawl function
