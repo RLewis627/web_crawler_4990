@@ -1,7 +1,5 @@
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -24,8 +22,8 @@ public class Crawler {
     private Set<String> pagesVisited = new HashSet<>();
     private List<String> pagesToVisit = new LinkedList<>();
     private List<String> links = new LinkedList<>();
-    private Document htmlDocument;
     private static final String USER_AGENT = "Chrome-Chrome OS";
+    private int i,j,k = 0;
 
     private String nextUrl() // Checks if URL has already been visited
     {
@@ -39,8 +37,7 @@ public class Crawler {
 
     public void search(String url) // Performs the main search function
     {
-        // MAX_PAGES_TO_SEARCH testing manual input
-        while (this.pagesVisited.size() < 10) {
+        while (this.pagesVisited.size() < 50) {
             String currentUrl;
             if (this.pagesToVisit.isEmpty()) {
                 currentUrl = url;
@@ -60,8 +57,6 @@ public class Crawler {
             Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
             Document htmlDocument = connection.get();
             String htmlString = connection.get().html();
-            this.htmlDocument = htmlDocument;
-
             if (connection.response().statusCode() == 200) {
                 System.out.println("\nVisiting " + url);
             }
@@ -70,24 +65,19 @@ public class Crawler {
                 return false;
             }
 
-            Elements linksOnPage = htmlDocument.select("a[href]");
-            CSV_FILE.add(url,linksOnPage.size());
-            System.out.println("Found " + linksOnPage.size() + " links");
-            
-            // Check the language of the webpage - if it's in our language, download it.
-            try {
-                // Limited to the first 500 words of the website so the API doesn't get
-                // overloaded
-                String pageLanguage = checkLanguage(htmlString.substring(0, 500));
-                if (pageLanguage.equals("English")) {
-                    System.out.println("The page is in: " + pageLanguage);
-                    downloadFile(htmlString);
-                } else {
-                    System.out.println("The language is not in the language of our choice");
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Elements linksOnPage = htmlDocument.select("a[href]"); 
+            Document htmlDoc = Jsoup.parse(htmlString);
+            Element taglang = htmlDoc.select("html").first();
+			String pageLanguage = taglang.attr("lang");
+			
+			if (pageLanguage.equals("en")|pageLanguage.equals("es-ES")|pageLanguage.equals("ru")) {
+				System.out.println("Found " + linksOnPage.size() + " links");
+			    System.out.println("The has the following language attribute: " + pageLanguage);
+			    CSV_FILE.add(url,linksOnPage.size());
+			    downloadFile(htmlString, pageLanguage);
+			} else {
+			    System.out.println("The language is not in the language of our choice");
+			}
             
             for (Element link : linksOnPage) {
                 this.links.add(link.absUrl("href"));
@@ -139,15 +129,28 @@ public class Crawler {
                 System.err.println("Failed to retrieve results for language.");
             }
         }
-
         return language;
     }
 
     // Write to a file - Done
-    public void downloadFile(String file) throws FileNotFoundException {
-        System.out.println("Downloading file");
-        try (PrintWriter out = new PrintWriter("repository/filename.html")) {
-            out.println(file);
+    public void downloadFile(String file, String language) throws FileNotFoundException {
+        if(language.equals("en")) { //en = English
+        	try (PrintWriter out = new PrintWriter("repository/English/filename"+i+".html")) {
+        		out.println(file);
+        		i++;
+        	}
+        }
+        else if(language.equals("es-ES")){ //es-ES = Espanol = Spanish
+        	 try (PrintWriter out = new PrintWriter("repository/Spanish/filename"+j+".html")) {
+                 out.println(file);
+                 j++;
+        	 }
+        }
+        else if(language.equals("ru")) { //ru = Russian
+        	try (PrintWriter out = new PrintWriter("repository/Russain/filename"+k+".html")) {
+                out.println(file);
+                k++;
+        	}
         }
     }
 
