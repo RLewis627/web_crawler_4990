@@ -1,6 +1,10 @@
 # web_crawler_4990
 ## Description
 Web crawler used to gather data on word frequencies and rank for 3 different languages
+### Input
+Ask for user input for the language to check
+Specify the argument in the command line java CrawlerTest -en .. -ru -es 
+else default is "English"
 ## Resources
 Resources should be under the lib folder containing our third party libraries, jar files, and APIs.
 https://jsoup.org/download
