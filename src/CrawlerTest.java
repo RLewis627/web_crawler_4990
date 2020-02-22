@@ -10,7 +10,7 @@ public class CrawlerTest {
         Scanner sc = new Scanner(System.in);
         if(args.length == 1){
             //en - ru - es
-            lang = args[1].substring(1, 2);
+            lang = args[0].substring(1, 2);
         }
         else {
             System.out.println("Enter a language: [es] [ru] [en] ");
@@ -19,7 +19,7 @@ public class CrawlerTest {
 
         Crawler crawler = new Crawler(lang);
         sc.close();
-        
+
         //english default - redundant if
         String searchSite = "https://www.reddit.com/";
 
