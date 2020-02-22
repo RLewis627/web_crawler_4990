@@ -6,6 +6,6 @@ public class CrawlerTest {
         //Spanish - https://www.debate.com.mx/usa/
         //Russain - https://www.mk.ru/
         //Use different websites as needed. You don't have to use the ones already listed
-        crawler.search("https://www.mk.ru/");
+        crawler.search("https://www.debate.com.mx/usa/");
     }
 }

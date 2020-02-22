@@ -37,7 +37,7 @@ public class Crawler {
 
     public void search(String url) // Performs the main search function
     {
-        while (this.pagesVisited.size() < 50) {
+        while (this.pagesVisited.size() < 10) {
             String currentUrl;
             if (this.pagesToVisit.isEmpty()) {
                 currentUrl = url;
