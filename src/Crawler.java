@@ -23,7 +23,12 @@ public class Crawler {
     private List<String> pagesToVisit = new LinkedList<>();
     private List<String> links = new LinkedList<>();
     private static final String USER_AGENT = "Chrome-Chrome OS";
-    private int i,j,k = 0;
+    private int fileIndex = 0;
+    private String lang;
+
+    public Crawler(String lang) {
+        this.lang = lang;
+    }
 
     private String nextUrl() // Checks if URL has already been visited
     {
@@ -65,20 +70,45 @@ public class Crawler {
                 return false;
             }
 
-            Elements linksOnPage = htmlDocument.select("a[href]"); 
+            Elements linksOnPage = htmlDocument.select("a[href]");
             Document htmlDoc = Jsoup.parse(htmlString);
             Element taglang = htmlDoc.select("html").first();
-			String pageLanguage = taglang.attr("lang");
-			
-			if (pageLanguage.equals("en")|pageLanguage.equals("es-ES")|pageLanguage.equals("ru")) {
-				System.out.println("Found " + linksOnPage.size() + " links");
-			    System.out.println("The has the following language attribute: " + pageLanguage);
-			    CSV_FILE.add(url,linksOnPage.size());
-			    downloadFile(htmlString, pageLanguage);
-			} else {
-			    System.out.println("The language is not in the language of our choice");
-			}
-            
+            String pageLanguage = taglang.attr("lang");
+
+            // Check the language of the webpage - if it's in our language, download it.
+            try {
+                // Limited to the first 500 words of the website so the API doesn't get
+                // overloaded
+                String pageLanguageDetect = checkLanguage(htmlString.substring(0, 500));
+                String input = null;
+
+                // check lang input from user input or cml
+                if (lang.equals("en")) {
+                    input = "English";
+                } else if (lang.equals("es")) {
+                    input = "Spanish";
+                } else if (lang.equals("ru")) {
+                    input = "Russian";
+                }
+                /**
+                 * TODO: maybe use page language for adding to repository
+                 * or add en-US en to pageLanguage.equals()
+                 * 
+                 * */
+                
+                if (pageLanguageDetect.equals(input) && pageLanguage.equals(lang)) {
+                    System.out.println("The page is in: " + pageLanguageDetect);
+                    System.out.println("Found " + linksOnPage.size() + " links");
+                    System.out.println("The has the following language attribute: " + pageLanguage);
+                    CSV_FILE.add(url, linksOnPage.size());
+                    downloadFile(htmlString, pageLanguage);
+                } else {
+                    System.out.println("The language is not in the language of our choice");
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             for (Element link : linksOnPage) {
                 this.links.add(link.absUrl("href"));
             }
@@ -125,7 +155,7 @@ public class Crawler {
                 JSONArray results = jsonResponse.getJSONArray("results");
                 language = results.getJSONObject(0).getString("language_name");
             } catch (JSONException e) {
-                //May throw org.json.JSONException: JSONObject["results"] not found.
+                // May throw org.json.JSONException: JSONObject["results"] not found.
                 System.err.println("Failed to retrieve results for language.");
             }
         }
@@ -134,33 +164,19 @@ public class Crawler {
 
     // Write to a file - Done
     public void downloadFile(String file, String language) throws FileNotFoundException {
-        if(language.equals("en")) { //en = English
-        	try (PrintWriter out = new PrintWriter("repository/English/filename"+i+".html")) {
-        		out.println(file);
-        		i++;
-        	}
-        }
-        else if(language.equals("es-ES")){ //es-ES = Espanol = Spanish
-        	 try (PrintWriter out = new PrintWriter("repository/Spanish/filename"+j+".html")) {
-                 out.println(file);
-                 j++;
-        	 }
-        }
-        else if(language.equals("ru")) { //ru = Russian
-        	try (PrintWriter out = new PrintWriter("repository/Russain/filename"+k+".html")) {
-                out.println(file);
-                k++;
-        	}
+        try (PrintWriter out = new PrintWriter("repository/" + lang + "/filename" + fileIndex + ".html")) {
+            out.println(file);
+            fileIndex++;
         }
     }
 
-    public static String encode(String url) {  
-        try {  
-                String encodeURL=URLEncoder.encode( url, "UTF-8" );  
-                return encodeURL;  
-        } catch (UnsupportedEncodingException e) {  
-                return "Issue while encoding" +e.getMessage();  
-        }  
+    public static String encode(String url) {
+        try {
+            String encodeURL = URLEncoder.encode(url, "UTF-8");
+            return encodeURL;
+        } catch (UnsupportedEncodingException e) {
+            return "Issue while encoding" + e.getMessage();
+        }
     }
 
     public List<String> getLinks()// Returns a list of all the URLs on the page
