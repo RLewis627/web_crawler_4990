@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.net.*;
 
+import com.detectlanguage.errors.APIError;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +16,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import com.detectlanguage.DetectLanguage;
 
 public class Crawler {
 
@@ -61,7 +63,7 @@ public class Crawler {
         try {
             Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
             Document htmlDocument = connection.get();
-            String htmlString = connection.get().html();
+            String htmlString = connection.get().text();
             if (connection.response().statusCode() == 200) {
                 System.out.println("\nVisiting " + url);
             }
@@ -71,15 +73,12 @@ public class Crawler {
             }
 
             Elements linksOnPage = htmlDocument.select("a[href]");
-            Document htmlDoc = Jsoup.parse(htmlString);
-            Element taglang = htmlDoc.select("html").first();
+            Element taglang = htmlDocument.select("html").first();
             String pageLanguage = taglang.attr("lang");
 
             // Check the language of the webpage - if it's in our language, download it.
             try {
-                // Limited to the first 500 words of the website so the API doesn't get
-                // overloaded
-                String pageLanguageDetect = checkLanguage(htmlString.substring(0, 500));
+                String pageLanguageDetect = checkLanguage(htmlString);
                 String input = null;
 
                 // check lang input from user input or cml
@@ -93,20 +92,19 @@ public class Crawler {
                 /**
                  * TODO: maybe use page language for adding to repository
                  * or add en-US en to pageLanguage.equals()
-                 * 
+                 *
                  * */
-                
-                if (pageLanguageDetect.equals(input) && pageLanguage.equals(lang)) {
-                    System.out.println("The page is in: " + pageLanguageDetect);
+
+                if (pageLanguageDetect.contains(lang)) {
+                    System.out.println("SUCCESS! The page is in: " + pageLanguageDetect);
                     System.out.println("Found " + linksOnPage.size() + " links");
-                    System.out.println("The has the following language attribute: " + pageLanguage);
                     CSV_FILE.add(url, linksOnPage.size());
                     downloadFile(htmlString, pageLanguage);
                 } else {
-                    System.out.println("The language is not in the language of our choice");
+                    System.out.println("ERROR! The page is in: " + pageLanguageDetect);
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (APIError apiError) {
+                apiError.printStackTrace();
             }
 
             for (Element link : linksOnPage) {
@@ -120,45 +118,10 @@ public class Crawler {
     }
 
     // Check the web page language - Done
-    public String checkLanguage(String url) throws IOException, InterruptedException {
-        String language = "";
-        String qry = url;
-        String urlString = "http://api.languagelayer.com/detect?access_key=a41003d098828a4f509e414890e40464&query="
-                + encode(qry);
-
-        // Preparing the URL request
-        URL urlReq = new URL(urlString);
-        HttpURLConnection con = (HttpURLConnection) urlReq.openConnection();
-
-        // Setting the request method and headers
-        con.setRequestMethod("GET");
-        con.addRequestProperty("User-Agent", USER_AGENT);
-
-        int status = con.getResponseCode();
-
-        // Check if the response code was successful
-        if (status == 200) {
-            System.out.println("\nStatus code: " + status);
-
-            // Gather the response and turn into a String object
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine + "\n");
-            }
-            in.close();
-
-            // Convert String into a JSON object for parsing
-            try {
-                JSONObject jsonResponse = new JSONObject(content.toString());
-                JSONArray results = jsonResponse.getJSONArray("results");
-                language = results.getJSONObject(0).getString("language_name");
-            } catch (JSONException e) {
-                // May throw org.json.JSONException: JSONObject["results"] not found.
-                System.err.println("Failed to retrieve results for language.");
-            }
-        }
+    public String checkLanguage(String url) throws APIError {
+        DetectLanguage.apiKey = "9883de6242b3d4347d2cb90e1e79c93f";
+        DetectLanguage.ssl = true;
+        String language = DetectLanguage.simpleDetect(url);
         return language;
     }
 
