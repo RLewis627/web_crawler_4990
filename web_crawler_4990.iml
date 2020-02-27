@@ -19,7 +19,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../detectlanguage-1.1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/detectlanguage-1.1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../gson-2.2.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/gson-2.2.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -37,18 +37,18 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../java-json.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/java-json.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/../java-json.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/java-json.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../jsoup-1.12.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsoup-1.12.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -57,7 +57,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../opencsv-5.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/opencsv-5.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

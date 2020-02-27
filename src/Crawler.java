@@ -1,9 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.*;
 import java.net.*;
 
@@ -44,7 +39,8 @@ public class Crawler {
 
     public void search(String url) // Performs the main search function
     {
-        while (this.pagesVisited.size() < 10) {
+        int i = 1;
+        while (this.pagesVisited.size() < 50) {
             String currentUrl;
             if (this.pagesToVisit.isEmpty()) {
                 currentUrl = url;
@@ -52,20 +48,22 @@ public class Crawler {
             } else {
                 currentUrl = this.nextUrl();
             }
-            crawl(currentUrl);
+            crawl(i, currentUrl);
             this.pagesToVisit.addAll(getLinks());
+            i++;
         }
         CSV_FILE.close();
     }
 
-    public boolean crawl(String url) // Makes an HTTP request for a given url
+    public boolean crawl(int siteNumber, String url) // Makes an HTTP request for a given url
     {
         try {
             Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
             Document htmlDocument = connection.get();
+            String htmlDocString = connection.get().html();
             String htmlString = connection.get().text();
             if (connection.response().statusCode() == 200) {
-                System.out.println("\nVisiting " + url);
+                System.out.println("\n("+siteNumber+") Visiting " + url);
             }
             if (!connection.response().contentType().contains("text/html")) {
                 System.out.println("Not a valid HTML file");
@@ -73,33 +71,17 @@ public class Crawler {
             }
 
             Elements linksOnPage = htmlDocument.select("a[href]");
-            Element taglang = htmlDocument.select("html").first();
-            String pageLanguage = taglang.attr("lang");
 
             // Check the language of the webpage - if it's in our language, download it.
             try {
                 String pageLanguageDetect = checkLanguage(htmlString);
-                String input = null;
-
-                // check lang input from user input or cml
-                if (lang.equals("en")) {
-                    input = "English";
-                } else if (lang.equals("es")) {
-                    input = "Spanish";
-                } else if (lang.equals("ru")) {
-                    input = "Russian";
-                }
-                /**
-                 * TODO: maybe use page language for adding to repository
-                 * or add en-US en to pageLanguage.equals()
-                 *
-                 * */
 
                 if (pageLanguageDetect.contains(lang)) {
                     System.out.println("SUCCESS! The page is in: " + pageLanguageDetect);
                     System.out.println("Found " + linksOnPage.size() + " links");
                     CSV_FILE.add(url, linksOnPage.size());
-                    downloadFile(htmlString, pageLanguage);
+                    downloadFile(htmlDocString);
+                    createMasterFile(htmlString);
                 } else {
                     System.out.println("ERROR! The page is in: " + pageLanguageDetect);
                 }
@@ -119,14 +101,31 @@ public class Crawler {
 
     // Check the web page language - Done
     public String checkLanguage(String url) throws APIError {
+        System.out.println("Checking site language...");
         DetectLanguage.apiKey = "9883de6242b3d4347d2cb90e1e79c93f";
         DetectLanguage.ssl = true;
         String language = DetectLanguage.simpleDetect(url);
         return language;
     }
 
+    public void createMasterFile(String siteString) throws FileNotFoundException {
+        System.out.println("Adding to master file!");
+        String fileName = "masterFile.txt";
+        File f = new File(fileName);
+
+        PrintWriter out = null;
+        if ( f.exists() && !f.isDirectory() ) {
+            out = new PrintWriter(new FileOutputStream(new File(fileName), true));
+        }
+        else {
+            out = new PrintWriter(fileName);
+        }
+        out.append("\n");
+        out.append(siteString);
+        out.close();
+    }
     // Write to a file - Done
-    public void downloadFile(String file, String language) throws FileNotFoundException {
+    public void downloadFile(String file) throws FileNotFoundException {
         try (PrintWriter out = new PrintWriter("repository/" + lang + "/filename" + fileIndex + ".html")) {
             out.println(file);
             fileIndex++;
