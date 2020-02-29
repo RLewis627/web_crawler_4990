@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdfbbfba-d2a1-4300-9d03-5de9a1ee1dcb" name="Default Changelist" comment="">
+    <list default="true" id="bdfbbfba-d2a1-4300-9d03-5de9a1ee1dcb" name="Default Changelist" comment="- Adjusted code&#10;- Added number of links that were unable to visit&#10;- Added documentation&#10;- Each language will now have their own CSV file&#10;- Added arguments for command line or user input for max pages to visit">
+      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSVReports/en_report.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSVReports/es_report.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSVReports/ru_report.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repository/en/filename0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repository/ru/filename0.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.csv" beforeDir="false" afterPath="$PROJECT_DIR$/report.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename0.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename0.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename1.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename2.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename3.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename4.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename5.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename6.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename7.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename8.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename9.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename0.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename0.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename1.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename2.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename3.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename4.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename5.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename6.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename7.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename8.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/ru/filename9.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSV.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Crawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_crawler_4990.iml" beforeDir="false" afterPath="$PROJECT_DIR$/web_crawler_4990.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CrawlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CrawlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +33,25 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel Santana Medin\workspaceIJ\web_crawler_4990_\CSVReports" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="CrawlerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -74,37 +77,72 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582611984955</updated>
+      <workItem from="1583004266005" duration="1689000" />
+      <workItem from="1583005978708" duration="4261000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- Adjusted code&#10;- Added number of links that were unable to visit&#10;- Added documentation&#10;- Each language will now have their own CSV file&#10;- Added arguments for command line or user input for max pages to visit" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Adjusted code&#10;- Added number of links that were unable to visit&#10;- Added documentation&#10;- Each language will now have their own CSV file&#10;- Added arguments for command line or user input for max pages to visit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="499" y="81" key="#Project_Structure" timestamp="1582612014875">
       <screen x="0" y="23" width="1680" height="949" />
     </state>
     <state x="499" y="81" key="#Project_Structure/0.23.1680.949@0.23.1680.949" timestamp="1582612014875" />
-    <state x="200" y="154" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582612347493">
-      <screen x="0" y="23" width="1680" height="949" />
+    <state x="174" y="140" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583009986028">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state x="174" y="140" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583009986028" />
     <state x="200" y="154" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.949@0.23.1680.949" timestamp="1582612347493" />
-    <state width="1398" height="345" key="GridCell.Tab.0.bottom" timestamp="1582784242237">
-      <screen x="0" y="23" width="1680" height="949" />
+    <state x="618" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1583004304804">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state x="618" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583004304804" />
+    <state x="333" y="0" key="CommitChangelistDialog2" timestamp="1583010405181">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="333" y="0" key="CommitChangelistDialog2/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010405181" />
+    <state width="1493" height="269" key="GridCell.Tab.0.bottom" timestamp="1583010272072">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="269" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010272072" />
     <state width="1398" height="345" key="GridCell.Tab.0.bottom/0.23.1680.949@0.23.1680.949" timestamp="1582784242237" />
-    <state width="1398" height="345" key="GridCell.Tab.0.center" timestamp="1582784242236">
-      <screen x="0" y="23" width="1680" height="949" />
+    <state width="1493" height="269" key="GridCell.Tab.0.center" timestamp="1583010272072">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state width="1493" height="269" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010272072" />
     <state width="1398" height="345" key="GridCell.Tab.0.center/0.23.1680.949@0.23.1680.949" timestamp="1582784242236" />
-    <state width="1398" height="345" key="GridCell.Tab.0.left" timestamp="1582784242236">
-      <screen x="0" y="23" width="1680" height="949" />
+    <state width="1493" height="269" key="GridCell.Tab.0.left" timestamp="1583010272072">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state width="1493" height="269" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010272072" />
     <state width="1398" height="345" key="GridCell.Tab.0.left/0.23.1680.949@0.23.1680.949" timestamp="1582784242236" />
-    <state width="1398" height="345" key="GridCell.Tab.0.right" timestamp="1582784242237">
-      <screen x="0" y="23" width="1680" height="949" />
+    <state width="1493" height="269" key="GridCell.Tab.0.right" timestamp="1583010272072">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state width="1493" height="269" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010272072" />
     <state width="1398" height="345" key="GridCell.Tab.0.right/0.23.1680.949@0.23.1680.949" timestamp="1582784242237" />
-    <state x="81" y="23" key="SettingsEditor" timestamp="1582766588792">
-      <screen x="0" y="23" width="1680" height="949" />
+    <state x="74" y="0" key="SettingsEditor" timestamp="1583008531244">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state x="74" y="0" key="SettingsEditor/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583008531244" />
     <state x="81" y="23" key="SettingsEditor/0.23.1680.949@0.23.1680.949" timestamp="1582766588792" />
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1583006007078">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583006007078" />
+    <state x="349" y="87" key="editAsTableFormatDialogDimension" timestamp="1583008045570">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="349" y="87" key="editAsTableFormatDialogDimension/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583008045570" />
+    <state x="398" y="129" width="740" height="606" key="find.popup" timestamp="1583009844795">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="398" y="129" width="740" height="606" key="find.popup/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583009844795" />
   </component>
 </project>
