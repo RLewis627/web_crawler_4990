@@ -1,116 +1,115 @@
 <!doctype html>
 <html lang="en">
- <head> 
-  <title>reddit.com: Join the worldwide conversation</title> 
-  <link rel="shortcut icon" type="image/png" sizes="512x512" href="https://www.redditstatic.com/accountmanager/favicon/favicon-512x512.png"> 
-  <link rel="shortcut icon" type="image/png" sizes="192x192" href="https://www.redditstatic.com/accountmanager/favicon/favicon-192x192.png"> 
-  <link rel="shortcut icon" type="image/png" sizes="32x32" href="https://www.redditstatic.com/accountmanager/favicon/favicon-32x32.png"> 
-  <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://www.redditstatic.com/accountmanager/favicon/favicon-16x16.png"> 
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.redditstatic.com/accountmanager/favicon/apple-touch-icon-180x180.png"> 
-  <link rel="mask-icon" href="https://www.redditstatic.com/accountmanager/favicon/safari-pinned-tab.svg" color="#5bbad5"> 
-  <link rel="canonical" href="https://www.reddit.com/register/"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"> 
-  <meta name="msapplication-TileColor" content="#ffffff"> 
-  <meta name="msapplication-TileImage" content="https://www.redditstatic.com/accountmanager/favicon/mstile-310x310.png"> 
-  <meta name="msapplication-TileImage" content="https://www.redditstatic.com/accountmanager/favicon/mstile-310x150.png"> 
-  <meta name="theme-color" content="#ffffff"> 
-  <meta name="description" content="Create an account on Reddit and become part of our community!"> 
-  <link rel="stylesheet" href="https://www.redditstatic.com/accountmanager/vendor.7749aab6f5c7d510110eaa0430cb683d.css"> 
-  <link rel="stylesheet" href="https://www.redditstatic.com/accountmanager/theme.a2bb91121c9d86c4df6e8bf81bd12f85.css"> 
-  <link rel="stylesheet" href="https://www.redditstatic.com/accountmanager/register.95e19ddbf98dc4653ea8771f87f5151b.css"> 
- </head> 
- <body> 
-  <div class="Container"> 
-   <div class="PageColumns"> 
-    <div class="PageColumn PageColumn__left"> 
-     <div class="Art"></div> 
-    </div> 
-    <div class="PageColumn PageColumn__right"> 
-     <div class="ColumnContainer"> 
-      <form class="AnimatedForm" action="/register" method="post" novalidate> 
-       <div class="Onboarding__step" data-step="1"> 
-        <h1 class="Title m-no-margin"> By having a Reddit account, you can join, vote, and comment on all your favorite Reddit content. </h1> 
-        <p class="Description"> </p> 
-        <input type="hidden" name="cookie_domain" value=".reddit.com"> 
-        <input type="hidden" name="dest" value="https://www.reddit.com/"> 
-        <input type="hidden" name="csrf_token" value="4e1428a0a32d341a3245b3518b39377f2f45e612"> 
-        <input type="hidden" name="is_oauth" value="False"> 
-        <input type="hidden" name="subreddit_ids" value="None"> 
-        <input type="hidden" name="country" value="US"> 
-        <input type="hidden" name="require_email_permission" value="False"> 
-        <input type="hidden" name="frontpage_signup_variant" value=""> 
-        <input type="hidden" name="ui_mode" value=""> 
-        <fieldset class="AnimatedForm__field"> 
-         <input id="regEmail" class="AnimatedForm__textInput" type="email" name="email" data-step="1" placeholder="Email"> <label class="AnimatedForm__textInputLabel" for="regEmail">Email</label> 
-         <div class="AnimatedForm__errorMessage" data-for="email"></div> 
-        </fieldset> 
-        <fieldset class="AnimatedForm__field"> <button class="AnimatedForm__submitButton" data-step="1" type="submit">Next</button> 
-        </fieldset> 
-        <div class="BottomText login">
-          Already a Redditor? <a class="BottomLink" href="/login/?dest=https%3A%2F%2Fwww.reddit.com%2F">Log in</a> 
-        </div> 
-        <p class="UserAgreement"> By clicking next, you agree to our <a target="_blank" href="https://www.reddit.com/help/useragreement">Terms</a> and that you have read our <a target="_blank" href="https://www.reddit.com/help/privacypolicy/">Privacy Policy</a> and <a target="_blank" href="https://www.reddit.com/help/contentpolicy/">Content Policy</a>. </p> 
-       </div> 
-       <!-- This step will be hidden for oauth --> 
-       <div class="Onboarding__step" data-step="3"> 
-        <div class="AnimatedForm__header"> 
-         <h1 class="Title m-no-margin">Find communities by topics you’re interested in.</h1> 
-         <p class="Description"> Reddit is filled with interest based communities, offering something for everyone.<br>Reddit works best when you have joined at least 5 communities. </p> 
-        </div> 
-        <div id="SubredditSubscriptions"></div> 
-        <div class="AnimatedForm__bottomNav"> <span class="AnimatedForm__submitStatus" data-step="3"> <span class="AnimatedForm__submitStatusIcon"></span> <span class="AnimatedForm__submitStatusMessage"></span> </span> <button class="AnimatedForm__submitButton SubscribeButton" type="submit">Finish</button> 
-        </div> 
-       </div> 
-       <div class="Onboarding__step" data-step="2"> 
-        <div class="AnimatedForm__header"> 
-         <h1 class="Title m-no-margin"> Choose your username </h1> 
-         <p class="Description"> Your username is how other community members will see you. This name will be used to credit you for things you share on Reddit. What should we call you? </p> 
-        </div> 
-        <div class="AnimatedForm__content"> 
-         <div class="AnimatedForm__usernameStep"> 
-          <fieldset class="AnimatedForm__field m-required"> 
-           <input id="regUsername" class="AnimatedForm__textInput" type="text" name="username" data-step="2" placeholder="Choose a Username"> <label class="AnimatedForm__textInputLabel" for="regUsername">Choose a Username</label> 
-           <div class="AnimatedForm__errorMessage" data-for="username"></div> 
-          </fieldset> 
-          <fieldset class="AnimatedForm__field m-required"> 
-           <input id="regPassword" class="AnimatedForm__textInput" type="password" name="password" data-step="2" placeholder="Password"> <label class="AnimatedForm__textInputLabel" for="regPassword">Password</label> 
-           <div class="PasswordMeter m-hidden"> 
-            <div class="PasswordMeter__Strength"></div> 
-            <div class="PasswordMeter__Strength"></div> 
-            <div class="PasswordMeter__Strength"></div> 
-            <div class="PasswordMeter__Strength"></div> 
-            <div class="PasswordMeter__Strength"></div> 
-           </div> 
-           <div class="AnimatedForm__errorMessage" data-for="password"></div> 
-          </fieldset> 
-         </div> 
-         <div class="Onboarding__usernameGenerator"> 
-          <p>Here are some username suggestions <a href="#" class="Onboarding__usernameRefresh"></a></p> 
-          <div class="Onboarding__usernameGeneratorSuggestions"> 
-           <div class="Onboarding__usernameWrapper"></div> 
-          </div> 
-         </div> 
-        </div> 
-        <div class="AnimatedForm__bottomNav"> <a href="#" class="AnimatedForm__backLink" data-step="2">Back</a> <span class="AnimatedForm__submitStatus" data-step="2"> <span class="AnimatedForm__submitStatusIcon"></span> <span class="AnimatedForm__submitStatusMessage"></span> </span> <button class="AnimatedForm__submitButton SignupButton" type="submit" data-step="2">Sign Up</button> 
-        </div> 
-       </div> 
-      </form> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <script>
-            //<![CDATA
-                
-window.___grecaptchaSiteKey = '6LeTnxkTAAAAAN9QEuDZRpn90WwKk_R1TRW_g-JC';
+<head>
+ <title>reddit.com: Log in</title>
+ <link rel="shortcut icon" type="image/png" sizes="512x512"
+       href="https://www.redditstatic.com/accountmanager/favicon/favicon-512x512.png">
+ <link rel="shortcut icon" type="image/png" sizes="192x192"
+       href="https://www.redditstatic.com/accountmanager/favicon/favicon-192x192.png">
+ <link rel="shortcut icon" type="image/png" sizes="32x32"
+       href="https://www.redditstatic.com/accountmanager/favicon/favicon-32x32.png">
+ <link rel="shortcut icon" type="image/png" sizes="16x16"
+       href="https://www.redditstatic.com/accountmanager/favicon/favicon-16x16.png">
+ <link rel="apple-touch-icon" sizes="180x180"
+       href="https://www.redditstatic.com/accountmanager/favicon/apple-touch-icon-180x180.png">
+ <link rel="mask-icon" href="https://www.redditstatic.com/accountmanager/favicon/safari-pinned-tab.svg" color="#5bbad5">
+ <link rel="canonical" href="https://www.reddit.com/login/">
+ <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <meta name="msapplication-TileColor" content="#ffffff">
+ <meta name="msapplication-TileImage" content="https://www.redditstatic.com/accountmanager/favicon/mstile-310x310.png">
+ <meta name="msapplication-TileImage" content="https://www.redditstatic.com/accountmanager/favicon/mstile-310x150.png">
+ <meta name="theme-color" content="#ffffff">
+ <meta name="description" content="Don’t worry, we won’t tell anyone your username. Log in to your Reddit account.">
+ <link rel="stylesheet" href="https://www.redditstatic.com/accountmanager/vendor.7749aab6f5c7d510110eaa0430cb683d.css">
+ <link rel="stylesheet" href="https://www.redditstatic.com/accountmanager/theme.a2bb91121c9d86c4df6e8bf81bd12f85.css">
+ <link rel="stylesheet" href="https://www.redditstatic.com/accountmanager/login.376e20d4657932357283da5fac4c9fc6.css">
+</head>
+<body>
+<div class="Container">
+ <div class="PageColumns">
+  <div class="PageColumn PageColumn__left">
+   <div class="Art"></div>
+  </div>
+  <div class="PageColumn PageColumn__right">
+   <div class="ColumnContainer mode-auth">
+    <div class="SnooIcon"></div>
+    <h1 class="Title"> Sign in </h1>
+    <p class="tfa-description hideable"> You have two-factor authentication enabled on this account because you're
+     awesome. </p>
+    <form class="AnimatedForm" action="/login" method="post">
+     <input type="hidden" name="cookie_domain" value=".reddit.com">
+     <input type="hidden" name="dest" value="https://www.reddit.com/">
+     <input type="hidden" name="csrf_token" value="d829146ede0e31bbd22733dcd51989dc7488429b">
+     <input type="hidden" name="is_oauth" value="False">
+     <input type="hidden" name="frontpage_signup_variant" value="">
+     <input type="hidden" name="ui_mode" value="">
+     <fieldset class="AnimatedForm__field m-required login hideable">
+      <input id="loginUsername" class="AnimatedForm__textInput" type="text" name="username" placeholder="Username">
+      <label class="AnimatedForm__textInputLabel" for="loginUsername">Username</label>
+      <div class="AnimatedForm__errorMessage"></div>
+     </fieldset>
+     <fieldset class="AnimatedForm__field m-required password hideable">
+      <input id="loginPassword" class="AnimatedForm__textInput" type="password" name="password" placeholder="Password">
+      <label class="AnimatedForm__textInputLabel" for="loginPassword">Password</label>
+      <div class="AnimatedForm__errorMessage"></div>
+     </fieldset>
+     <div class="two-modes-separator"></div>
+     <fieldset class="AnimatedForm__field m-required otp hideable">
+      <input id="loginOtp" class="AnimatedForm__textInput" type="tel" name="otp" pattern="[0-9]*" autocomplete="off"
+             disabled placeholder="6 digit code"> <label class="AnimatedForm__textInputLabel" for="loginPassword">6
+      digit code</label>
+      <div class="AnimatedForm__errorMessage"></div>
+      <input type="hidden" name="otp-type" value="app">
+     </fieldset>
+     <fieldset class="AnimatedForm__field switch-otp-type hideable"><span class="BottomLink switch-otp-type">Use a backup code</span>
+     </fieldset>
+     <fieldset class="AnimatedForm__field">
+      <button class="AnimatedForm__submitButton" type="submit">Sign in</button>
+      <div class="AnimatedForm__submitStatus">
+       <div class="AnimatedForm__submitStatusIcon"></div>
+       <!--
+      --><span class="AnimatedForm__submitStatusMessage"></span>
+      </div>
+     </fieldset>
+    </form>
+    <div class="BottomText m-secondary-text login-bottom-text hideable"><a class="BottomLink m-secondary-text"
+                                                                           href="/username?dest=https%3A%2F%2Fwww.reddit.com%2F">Forgot
+     username</a> <span>·</span> <a class="BottomLink m-secondary-text"
+                                    href="/password?dest=https%3A%2F%2Fwww.reddit.com%2F">Forgot password</a>
+    </div>
+    <div class="BottomText login-bottom-text register hideable">
+     New to Reddit? <a class="BottomLink" href="/register/?dest=https%3A%2F%2Fwww.reddit.com%2F">Sign up</a>
+    </div>
+    <div class="BottomText tfa-bottom-text hideable"><span class="BottomLink back-to-main">Go&nbsp;back&nbsp;to&nbsp;account&nbsp;details</span>
+     <!--
+  --><span class="LinkSeparator">•</span>
+     <!--
+  --><a class="BottomLink" target="_blank"
+          href="https://www.reddithelp.com/en/categories/using-reddit/your-reddit-account/how-set-two-factor-authentication">Having&nbsp;trouble&nbsp;?</a>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<script>
+ //<![CDATA
 
-                window.___r = {"config": {"tracker_endpoint": "https://events.reddit.com/v2", "tracker_key": "AccountManager3", "tracker_secret": "V2FpZ2FlMlZpZTJ3aWVyMWFpc2hhaGhvaHNoZWl3"}};
-            //]]>
-        </script> 
-  <script type="text/javascript" src="https://www.redditstatic.com/accountmanager/common.5f208be65e2f4c8c935d.js"></script> 
-  <script type="text/javascript" src="https://www.redditstatic.com/accountmanager/vendor.02e70b0510146f5c6a8c.js"></script> 
-  <script type="text/javascript" src="https://www.redditstatic.com/accountmanager/theme.f03d466e68261629ed71.js"></script> 
-  <script type="text/javascript" src="https://www.redditstatic.com/accountmanager/sentry.00f808dacac23dde983c.js"></script> 
-  <script type="text/javascript" src="https://www.redditstatic.com/accountmanager/register.8f03b7850a52f7a26363.js"></script>  
- </body>
+ window.___r = {
+  "config": {
+   "tracker_endpoint": "https://events.reddit.com/v2",
+   "tracker_key": "AccountManager3",
+   "tracker_secret": "V2FpZ2FlMlZpZTJ3aWVyMWFpc2hhaGhvaHNoZWl3"
+  }
+ };
+ //]]>
+</script>
+<script type="text/javascript"
+        src="https://www.redditstatic.com/accountmanager/common.5f208be65e2f4c8c935d.js"></script>
+<script type="text/javascript"
+        src="https://www.redditstatic.com/accountmanager/vendor.02e70b0510146f5c6a8c.js"></script>
+<script type="text/javascript" src="https://www.redditstatic.com/accountmanager/theme.f03d466e68261629ed71.js"></script>
+<script type="text/javascript"
+        src="https://www.redditstatic.com/accountmanager/sentry.00f808dacac23dde983c.js"></script>
+<script type="text/javascript" src="https://www.redditstatic.com/accountmanager/login.4b66316ef4e9cc4eecd6.js"></script>
+</body>
 </html>

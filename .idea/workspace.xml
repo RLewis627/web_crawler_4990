@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bdfbbfba-d2a1-4300-9d03-5de9a1ee1dcb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="Sweetcharge" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="web_crawler_4990" />
+  </component>
+  <component name="ProjectId" id="1YHukXtD2uR1qIVApcGdpV8yuAQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel Santana Medin\workspaceIJ\web_crawler_4990_\CSVReports" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CrawlerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CrawlerTest" />
+      <module name="web_crawler_4990" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CrawlerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdfbbfba-d2a1-4300-9d03-5de9a1ee1dcb" name="Default Changelist" comment="" />
+      <created>1582611984955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582611984955</updated>
+      <workItem from="1583004266005" duration="1689000" />
+      <workItem from="1583005978708" duration="5536000" />
+    </task>
+    <task id="LOCAL-00001" summary="- Adjusted CSV code and CrawlerTest code&#10;- Added number of links that were unable to visit&#10;- Added documentation&#10;- Each language will now have their own CSV file&#10;- Added arguments for command line or user input for max pages to visit&#10;- Added Master folder with subsections for lang and moved the master files there">
+      <created>1583010482147</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583010482147</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="- Adjusted code&#10;- Added number of links that were unable to visit&#10;- Added documentation&#10;- Each language will now have their own CSV file&#10;- Added arguments for command line or user input for max pages to visit" />
+    <MESSAGE value="- Adjusted CSV code and CrawlerTest code&#10;- Added number of links that were unable to visit&#10;- Added documentation&#10;- Each language will now have their own CSV file&#10;- Added arguments for command line or user input for max pages to visit&#10;- Added Master folder with subsections for lang and moved the master files there" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Adjusted CSV code and CrawlerTest code&#10;- Added number of links that were unable to visit&#10;- Added documentation&#10;- Each language will now have their own CSV file&#10;- Added arguments for command line or user input for max pages to visit&#10;- Added Master folder with subsections for lang and moved the master files there" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="81" key="#Project_Structure" timestamp="1582612014875">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="499" y="81" key="#Project_Structure/0.23.1680.949@0.23.1680.949" timestamp="1582612014875" />
+    <state x="174" y="140" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583009986028">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="174" y="140" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583009986028" />
+    <state x="200" y="154" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.949@0.23.1680.949" timestamp="1582612347493" />
+    <state x="618" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1583004304804">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="618" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583004304804" />
+    <state x="333" y="0" key="CommitChangelistDialog2" timestamp="1583011553964">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="333" y="0" key="CommitChangelistDialog2/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583011553964" />
+    <state x="530" y="299" key="Github.CreatePullRequestDialog" timestamp="1583011385720">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="530" y="299" key="Github.CreatePullRequestDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583011385720" />
+    <state width="1493" height="269" key="GridCell.Tab.0.bottom" timestamp="1583010529520">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="269" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010529520" />
+    <state width="1398" height="345" key="GridCell.Tab.0.bottom/0.23.1680.949@0.23.1680.949" timestamp="1582784242237" />
+    <state width="1493" height="269" key="GridCell.Tab.0.center" timestamp="1583010529517">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="269" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010529517" />
+    <state width="1398" height="345" key="GridCell.Tab.0.center/0.23.1680.949@0.23.1680.949" timestamp="1582784242236" />
+    <state width="1493" height="269" key="GridCell.Tab.0.left" timestamp="1583010529517">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="269" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010529517" />
+    <state width="1398" height="345" key="GridCell.Tab.0.left/0.23.1680.949@0.23.1680.949" timestamp="1582784242236" />
+    <state width="1493" height="269" key="GridCell.Tab.0.right" timestamp="1583010529519">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="269" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010529519" />
+    <state width="1398" height="345" key="GridCell.Tab.0.right/0.23.1680.949@0.23.1680.949" timestamp="1582784242237" />
+    <state x="74" y="0" key="SettingsEditor" timestamp="1583008531244">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="74" y="0" key="SettingsEditor/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583008531244" />
+    <state x="81" y="23" key="SettingsEditor/0.23.1680.949@0.23.1680.949" timestamp="1582766588792" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1583011567101">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583011567101" />
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1583006007078">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583006007078" />
+    <state x="349" y="87" key="editAsTableFormatDialogDimension" timestamp="1583008045570">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="349" y="87" key="editAsTableFormatDialogDimension/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583008045570" />
+    <state x="398" y="129" width="740" height="606" key="find.popup" timestamp="1583009844795">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="398" y="129" width="740" height="606" key="find.popup/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583009844795" />
+  </component>
+</project>

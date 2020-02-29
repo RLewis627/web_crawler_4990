@@ -1,33 +1,32 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.*;
 import java.net.*;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.detectlanguage.errors.APIError;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import com.detectlanguage.DetectLanguage;
 
 public class Crawler {
 
-    private CSV CSV_FILE = new CSV();
+    private final int maxPagesToVisit;
+    private CSV CSV_FILE;
+    private int pagesNotVisited;
     private Set<String> pagesVisited = new HashSet<>();
     private List<String> pagesToVisit = new LinkedList<>();
     private List<String> links = new LinkedList<>();
-    private static final String USER_AGENT = "Chrome-Chrome OS";
+    private static final String WEB_BROWSER = "Chrome-Chrome OS";
     private int fileIndex = 0;
     private String lang;
 
-    public Crawler(String lang) {
+    public Crawler(String lang, int max) {
         this.lang = lang;
+        this.CSV_FILE = new CSV(lang);
+        this.pagesNotVisited = 0;
+        this.maxPagesToVisit = max;
     }
 
     private String nextUrl() // Checks if URL has already been visited
@@ -42,7 +41,8 @@ public class Crawler {
 
     public void search(String url) // Performs the main search function
     {
-        while (this.pagesVisited.size() < 10) {
+        int i = 1;
+        while (this.pagesVisited.size() < maxPagesToVisit) {
             String currentUrl;
             if (this.pagesToVisit.isEmpty()) {
                 currentUrl = url;
@@ -50,126 +50,94 @@ public class Crawler {
             } else {
                 currentUrl = this.nextUrl();
             }
-            crawl(currentUrl);
+            crawl(i, currentUrl);
             this.pagesToVisit.addAll(getLinks());
+            i++;
+        }
+        if (pagesNotVisited > 0) {
+            System.out.println("The crawler was unable to visit " + pagesNotVisited +
+                    " link(s) due to the language detected or not having a valid html file");
         }
         CSV_FILE.close();
     }
 
-    public boolean crawl(String url) // Makes an HTTP request for a given url
+    public void crawl(int siteNumber, String url) // Makes an HTTP request for a given url
     {
         try {
-            Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+            Connection connection = Jsoup.connect(url).userAgent(WEB_BROWSER);
             Document htmlDocument = connection.get();
-            String htmlString = connection.get().html();
+            String htmlDocString = connection.get().html();
+            String htmlString = connection.get().text();
             if (connection.response().statusCode() == 200) {
-                System.out.println("\nVisiting " + url);
+                System.out.println("\n(" + siteNumber + ") Visiting " + url);
             }
             if (!connection.response().contentType().contains("text/html")) {
                 System.out.println("Not a valid HTML file");
-                return false;
+                pagesNotVisited++;
             }
 
             Elements linksOnPage = htmlDocument.select("a[href]");
-            Document htmlDoc = Jsoup.parse(htmlString);
-            Element taglang = htmlDoc.select("html").first();
-            String pageLanguage = taglang.attr("lang");
 
             // Check the language of the webpage - if it's in our language, download it.
             try {
-                // Limited to the first 500 words of the website so the API doesn't get
-                // overloaded
-                String pageLanguageDetect = checkLanguage(htmlString.substring(0, 500));
-                String input = null;
+                System.out.println("Checking site language...");
+                String pageLanguageDetect = checkLanguage(htmlString);
 
-                // check lang input from user input or cml
-                if (lang.equals("en")) {
-                    input = "English";
-                } else if (lang.equals("es")) {
-                    input = "Spanish";
-                } else if (lang.equals("ru")) {
-                    input = "Russian";
-                }
-                /**
-                 * TODO: maybe use page language for adding to repository
-                 * or add en-US en to pageLanguage.equals()
-                 * 
-                 * */
-                
-                if (pageLanguageDetect.equals(input) && pageLanguage.equals(lang)) {
-                    System.out.println("The page is in: " + pageLanguageDetect);
+                if (pageLanguageDetect.contains(lang)) {
+                    System.out.println("SUCCESS! The page is in: " + pageLanguageDetect);
                     System.out.println("Found " + linksOnPage.size() + " links");
-                    System.out.println("The has the following language attribute: " + pageLanguage);
                     CSV_FILE.add(url, linksOnPage.size());
-                    downloadFile(htmlString, pageLanguage);
+                    downloadFile(htmlDocString);
+                    createMasterFile(htmlString);
                 } else {
-                    System.out.println("The language is not in the language of our choice");
+                    System.out.println("ERROR! The page is in: " + pageLanguageDetect);
+                    pagesNotVisited++;
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (APIError apiError) {
+                apiError.printStackTrace();
             }
 
             for (Element link : linksOnPage) {
                 this.links.add(link.absUrl("href"));
             }
-            return true;
         } catch (IOException e) {
             System.out.println("Error in out HTTP request " + e);
-            return false;
         }
     }
 
     // Check the web page language - Done
-    public String checkLanguage(String url) throws IOException, InterruptedException {
-        String language = "";
-        String qry = url;
-        String urlString = "http://api.languagelayer.com/detect?access_key=a41003d098828a4f509e414890e40464&query="
-                + encode(qry);
-
-        // Preparing the URL request
-        URL urlReq = new URL(urlString);
-        HttpURLConnection con = (HttpURLConnection) urlReq.openConnection();
-
-        // Setting the request method and headers
-        con.setRequestMethod("GET");
-        con.addRequestProperty("User-Agent", USER_AGENT);
-
-        int status = con.getResponseCode();
-
-        // Check if the response code was successful
-        if (status == 200) {
-            System.out.println("\nStatus code: " + status);
-
-            // Gather the response and turn into a String object
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine + "\n");
-            }
-            in.close();
-
-            // Convert String into a JSON object for parsing
-            try {
-                JSONObject jsonResponse = new JSONObject(content.toString());
-                JSONArray results = jsonResponse.getJSONArray("results");
-                language = results.getJSONObject(0).getString("language_name");
-            } catch (JSONException e) {
-                // May throw org.json.JSONException: JSONObject["results"] not found.
-                System.err.println("Failed to retrieve results for language.");
-            }
-        }
+    public String checkLanguage(String url) throws APIError {
+        DetectLanguage.apiKey = "9883de6242b3d4347d2cb90e1e79c93f";
+        DetectLanguage.ssl = true;
+        String language = DetectLanguage.simpleDetect(url);
         return language;
     }
 
+    public void createMasterFile(String siteString) throws FileNotFoundException {
+        System.out.println("Adding to master file!");
+        String fileName = "Master/" + lang + "_" + "masterFile.txt";
+        File f = new File(fileName);
+
+        PrintWriter out;
+        if ( f.exists() && !f.isDirectory() ) {
+            out = new PrintWriter(new FileOutputStream(new File(fileName), true));
+        }
+        else {
+            out = new PrintWriter(fileName);
+        }
+        out.append("\n");
+        out.append(siteString);
+        out.close();
+    }
     // Write to a file - Done
-    public void downloadFile(String file, String language) throws FileNotFoundException {
+    public void downloadFile(String file) throws FileNotFoundException {
         try (PrintWriter out = new PrintWriter("repository/" + lang + "/filename" + fileIndex + ".html")) {
             out.println(file);
             fileIndex++;
         }
     }
 
+    //TODO: check if encode is being used
     public static String encode(String url) {
         try {
             String encodeURL = URLEncoder.encode(url, "UTF-8");
