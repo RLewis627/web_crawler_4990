@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdfbbfba-d2a1-4300-9d03-5de9a1ee1dcb" name="Default Changelist" comment="- Adjusted CSV code and CrawlerTest code&#10;- Added number of links that were unable to visit&#10;- Added documentation&#10;- Each language will now have their own CSV file&#10;- Added arguments for command line or user input for max pages to visit&#10;- Added Master folder with subsections for lang and moved the master files there">
+
+    <list default="true" id="bdfbbfba-d2a1-4300-9d03-5de9a1ee1dcb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSVReports/en_report.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSVReports/en_report.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Master/en_masterFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Master/en_masterFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename0.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename0.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename1.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/en/filename2.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/en/filename2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSVReports/es_report.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSVReports/es_report.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSVReports/ru_report.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSVReports/ru_report.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/es/filename0.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/es/filename0.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/ru/filename0.html" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ru/filename0.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Crawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_4990.iml" beforeDir="false" afterPath="$PROJECT_DIR$/web_crawler_4990.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,11 +112,18 @@
     </state>
     <state x="174" y="140" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583009986028" />
     <state x="200" y="154" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.949@0.23.1680.949" timestamp="1582612347493" />
-    <state x="618" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1583004304804">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="676" y="376" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1583034409818">
+      <screen x="0" y="23" width="1680" height="949" />
     </state>
     <state x="618" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583004304804" />
-    <state x="333" y="0" key="CommitChangelistDialog2" timestamp="1583012515026">
+
+    <state x="676" y="376" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1680.949@0.23.1680.949" timestamp="1583034409818" />
+    <state x="379" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583034896880">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="379" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.949@0.23.1680.949" timestamp="1583034896880" />
+    <state x="333" y="0" key="CommitChangelistDialog2" timestamp="1583011553964">
+
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="333" y="0" key="CommitChangelistDialog2/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583012515026" />
@@ -122,35 +131,33 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="530" y="299" key="Github.CreatePullRequestDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583011385720" />
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1583012728458">
-      <screen x="1920" y="0" width="1920" height="1080" />
+
+    <state width="1625" height="12" key="GridCell.Tab.0.bottom" timestamp="1583036689316">
+      <screen x="0" y="23" width="1680" height="949" />
     </state>
-    <state width="746" height="269" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583012430694" />
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1583012728458" />
-    <state width="1398" height="345" key="GridCell.Tab.0.bottom/0.23.1680.949@0.23.1680.949" timestamp="1582784242237" />
-    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1583012728458">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1493" height="269" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010529520" />
+    <state width="1625" height="12" key="GridCell.Tab.0.bottom/0.23.1680.949@0.23.1680.949" timestamp="1583036689316" />
+    <state width="1625" height="12" key="GridCell.Tab.0.center" timestamp="1583036689315">
+      <screen x="0" y="23" width="1680" height="949" />
     </state>
-    <state width="746" height="269" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583012430694" />
-    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1583012728458" />
-    <state width="1398" height="345" key="GridCell.Tab.0.center/0.23.1680.949@0.23.1680.949" timestamp="1582784242236" />
-    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1583012728458">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1493" height="269" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010529517" />
+    <state width="1625" height="12" key="GridCell.Tab.0.center/0.23.1680.949@0.23.1680.949" timestamp="1583036689315" />
+    <state width="1625" height="12" key="GridCell.Tab.0.left" timestamp="1583036689314">
+      <screen x="0" y="23" width="1680" height="949" />
     </state>
-    <state width="746" height="269" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583012430693" />
-    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1583012728458" />
-    <state width="1398" height="345" key="GridCell.Tab.0.left/0.23.1680.949@0.23.1680.949" timestamp="1582784242236" />
-    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1583012728458">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1493" height="269" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010529517" />
+    <state width="1625" height="12" key="GridCell.Tab.0.left/0.23.1680.949@0.23.1680.949" timestamp="1583036689314" />
+    <state width="1625" height="12" key="GridCell.Tab.0.right" timestamp="1583036689316">
+      <screen x="0" y="23" width="1680" height="949" />
     </state>
-    <state width="746" height="269" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583012430694" />
-    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1583012728458" />
-    <state width="1398" height="345" key="GridCell.Tab.0.right/0.23.1680.949@0.23.1680.949" timestamp="1582784242237" />
-    <state x="74" y="0" key="SettingsEditor" timestamp="1583008531244">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1493" height="269" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583010529519" />
+    <state width="1625" height="12" key="GridCell.Tab.0.right/0.23.1680.949@0.23.1680.949" timestamp="1583036689316" />
+    <state x="81" y="23" key="SettingsEditor" timestamp="1583034450312">
+      <screen x="0" y="23" width="1680" height="949" />
+
     </state>
     <state x="74" y="0" key="SettingsEditor/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1583008531244" />
-    <state x="81" y="23" key="SettingsEditor/0.23.1680.949@0.23.1680.949" timestamp="1582766588792" />
+    <state x="81" y="23" key="SettingsEditor/0.23.1680.949@0.23.1680.949" timestamp="1583034450312" />
     <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1583011567101">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
