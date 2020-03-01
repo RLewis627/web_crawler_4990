@@ -57,8 +57,10 @@ public class Crawler {
         }
         if (pagesNotVisited > 0) {
             System.out.println("The crawler was unable to visit " + pagesNotVisited +
-                    " link(s) due to the language detected or not having a valid html file");
+                    " link(s) due to the language detected or not having a valid file.");
         }
+        System.out.println("Visited: " + pagesVisited + " links. This may be due to the face that" +
+                " we did not visit the same site twice again.");
         CSV_FILE.close();
     }
 

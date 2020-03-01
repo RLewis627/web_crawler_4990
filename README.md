@@ -3,9 +3,9 @@
 Web crawler used to gather data on word frequencies and rank for 3 different languages
 ### Input
 Ask the user for input to crawl language or
-specify the argument in the command line java CrawlerTest -en .. -ru -es 
-else default is an "English" website
-Also ask user for # of max pages to visit
+specify the argument in the command line: \
+`java -cp "bin;lib/*" src/CrawlerTest.java -en -10` \
+-en [-ru -es] is the switch, -10 [-100.. -N] is the total numbers to crawl
 ## Resources
 Resources should be under the lib folder containing our third party libraries, jar files, and APIs.
 https://jsoup.org/download
