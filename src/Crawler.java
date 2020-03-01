@@ -1,14 +1,15 @@
 import java.io.*;
 import java.util.*;
-import java.net.*;
 
+import com.github.pemistahl.lingua.api.*;
+import static com.github.pemistahl.lingua.api.Language.*;
+import java.util.List;
 import com.detectlanguage.errors.APIError;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import com.detectlanguage.DetectLanguage;
 
 public class Crawler {
 
@@ -81,9 +82,22 @@ public class Crawler {
             // Check the language of the webpage - if it's in our language, download it.
             try {
                 System.out.println("Checking site language...");
-                String pageLanguageDetect = checkLanguage(htmlString);
+                Language pageLanguageDetect = checkLanguage(htmlString);
+                Language input = null;
 
-                if (pageLanguageDetect.contains(lang)) {
+                switch (lang) {
+                    case "en":
+                        input = ENGLISH;
+                        break;
+                    case "es":
+                        input = SPANISH;
+                        break;
+                    case "ru":
+                        input = RUSSIAN;
+                        break;
+                }
+
+                if (pageLanguageDetect == input) {
                     System.out.println("SUCCESS! The page is in: " + pageLanguageDetect);
                     System.out.println("Found " + linksOnPage.size() + " links");
                     CSV_FILE.add(url, linksOnPage.size());
@@ -102,15 +116,23 @@ public class Crawler {
             }
         } catch (IOException e) {
             System.out.println("Error in out HTTP request " + e);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: Invalid URL");
         }
     }
 
     // Check the web page language - Done
-    public String checkLanguage(String url) throws APIError {
-        DetectLanguage.apiKey = "9883de6242b3d4347d2cb90e1e79c93f";
-        DetectLanguage.ssl = true;
-        String language = DetectLanguage.simpleDetect(url);
-        return language;
+    public Language checkLanguage(String url) throws APIError {
+        Language detectedLanguage = null;
+
+        try {
+            final LanguageDetector detector = LanguageDetectorBuilder.fromLanguages(ENGLISH, FRENCH, GERMAN, RUSSIAN, SPANISH).build();
+            detectedLanguage = detector.detectLanguageOf(url);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Not a valid file");
+        } finally {
+            return detectedLanguage;
+        }
     }
 
     public void createMasterFile(String siteString) throws FileNotFoundException {
@@ -125,25 +147,16 @@ public class Crawler {
         else {
             out = new PrintWriter(fileName);
         }
-        out.append("\n");
+        out.append("\n\n");
         out.append(siteString);
         out.close();
     }
+
     // Write to a file - Done
     public void downloadFile(String file) throws FileNotFoundException {
         try (PrintWriter out = new PrintWriter("repository/" + lang + "/filename" + fileIndex + ".html")) {
             out.println(file);
             fileIndex++;
-        }
-    }
-
-    //TODO: check if encode is being used
-    public static String encode(String url) {
-        try {
-            String encodeURL = URLEncoder.encode(url, "UTF-8");
-            return encodeURL;
-        } catch (UnsupportedEncodingException e) {
-            return "Issue while encoding" + e.getMessage();
         }
     }
 
