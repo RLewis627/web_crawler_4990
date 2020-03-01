@@ -3,7 +3,7 @@
 Web crawler used to gather data on word frequencies and rank for 3 different languages
 ### Input
 Ask the user for input to crawl language or
-specify the argument in the command line:
+specify the argument in the command line: \
 `java -cp "bin;lib/*" src/CrawlerTest.java -en -10` \
 -en [-ru -es] is the switch, -10 [-100.. -N] is the total numbers to crawl
 ## Resources
